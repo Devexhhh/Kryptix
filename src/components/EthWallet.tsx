@@ -1,0 +1,81 @@
+import { useState } from "react";
+import { mnemonicToSeed } from "bip39";
+import { Wallet, HDNodeWallet } from "ethers";
+
+interface EthWallet {
+    address: string;
+    privateKey: string;
+}
+
+interface EthWalletProps {
+    mnemonic: string;
+}
+
+export const EthWallet = ({ mnemonic }: EthWalletProps) => {
+    const [currentIndex, setCurrentIndex] = useState<number>(0);
+    const [wallets, setWallets] = useState<EthWallet[]>([]);
+
+    const createWallet = async () => {
+        if (!mnemonic) return;
+
+        const seed = await mnemonicToSeed(mnemonic);
+
+        // 1. Create the Master HD Node from the seed
+        const hdNode = HDNodeWallet.fromSeed(seed);
+
+        // 2. Derive the specific path for the wallet
+        // Standard Ethereum path: m / 44' / 60' / 0' / 0 / index
+        const derivationPath = `m/44'/60'/0'/0/${currentIndex}`;
+
+        const child = hdNode.derivePath(derivationPath);
+
+        // 3. Create a Wallet instance (optional, but good if you want to sign txs later)
+        const wallet = new Wallet(child.privateKey);
+
+        setCurrentIndex((prev) => prev + 1);
+        setWallets((prev) => [
+            ...prev,
+            {
+                address: wallet.address,
+                privateKey: wallet.privateKey,
+            },
+        ]);
+    };
+
+    return (
+        <div className="flex flex-col gap-4 mt-6">
+            <div className="flex items-center justify-between">
+                <h2 className="text-xl font-bold text-white">Ethereum Wallet</h2>
+                <button
+                    className="bg-blue-600 hover:bg-blue-500 text-white font-bold py-2 px-4 rounded transition-all"
+                    onClick={createWallet}
+                >
+                    Add ETH Wallet
+                </button>
+            </div>
+
+            <div className="space-y-4">
+                {wallets.map((wallet, idx) => (
+                    <div key={idx} className="bg-zinc-900 border border-zinc-800 p-4 rounded-xl shadow-sm hover:border-zinc-700 transition-colors">
+                        <div className="flex justify-between items-center mb-2">
+                            <span className="text-lg font-bold text-white">Wallet {idx + 1}</span>
+                        </div>
+
+                        <div className="space-y-2">
+                            <div className="bg-zinc-950 p-3 rounded-lg flex flex-col gap-1">
+                                <span className="text-xs text-zinc-500 font-semibold uppercase">Public Key</span>
+                                <span className="text-zinc-300 font-mono text-sm break-all">{wallet.address}</span>
+                            </div>
+
+                            <div className="bg-zinc-950 p-3 rounded-lg flex flex-col gap-1">
+                                <span className="text-xs text-zinc-500 font-semibold uppercase">Private Key</span>
+                                {/* In a real app, use a type="password" input or a toggle state to hide this */}
+                                <span className="text-zinc-300 font-mono text-sm break-all">{wallet.privateKey}</span>
+                            </div>
+                        </div>
+                    </div>
+                ))}
+            </div>
+        </div>
+    );
+};
