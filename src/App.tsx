@@ -30,12 +30,12 @@ export default function App() {
       <main className="max-w-4xl mx-auto flex flex-col gap-12">
 
         {/* SECTION 1: SEED PHRASE */}
-        <section className="bg-zinc-900 border border-zinc-800 rounded-xl p-8 shadow-xl">
+        <div className=" border border-zinc-800 rounded-2xl p-8 shadow-xl">
           <h2 className="text-2xl font-bold mb-2">Your Secret Phrase</h2>
           <p className="text-zinc-400 mb-6">Save these words in a safe place. You cannot recover your wallet without them.</p>
 
           <MnemonicGenerator mnemonic={mnemonic} setMnemonic={setMnemonic} />
-        </section>
+        </div>
 
         {/* SECTION 2: WALLET DASHBOARD (Only shows after seed is generated) */}
         {mnemonic && (
