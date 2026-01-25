@@ -28,10 +28,10 @@ export const MnemonicGenerator = ({ mnemonic, setMnemonic }: MnemonicGeneratorPr
                     {mnemonic.split(" ").map((word, i) => (
                         <div
                             key={i}
-                            className="bg-zinc-900 text-zinc-100 px-3 py-2 rounded-md text-sm"
+                            className="h-16 flex py-5 justify-center content-center bg-zinc-900 text-zinc-100 font-thin rounded-md text-sm"
                         >
-                            <span className="text-zinc-500 select-none mr-2">{i + 1}.</span>
-                            {word}
+                            <span className="text-zinc-500 font-thin select-none mr-2">{i + 1}.</span>
+                            {word.charAt(0).toUpperCase() + word.slice(1)}
                         </div>
                     ))}
                 </div>
