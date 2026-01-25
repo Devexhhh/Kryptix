@@ -15,7 +15,7 @@ export const MnemonicGenerator = ({ mnemonic, setMnemonic }: MnemonicGeneratorPr
     return (
         <div className="flex flex-col gap-4 text-center">
             <Button variant="outline"
-                className={`h-15 px-4 py-2 rounded-xl text-xl font-semibold transition-colors duration-200 ease-in-out ${mnemonic ? "bg-gray-600 cursor-not-allowed" : "bg-gray-600 hover:bg-gray-800"
+                className={`h-12 px-4 py-2 rounded text-xl font-medium cursor-pointer text-zinc-900 transition-colors duration-200 ease-in-out ${mnemonic ? "bg-gray-100 cursor-not-allowed" : "bg-gray-100 hover:bg-gray-300"
                     }`}
                 onClick={createMnemonic}
                 disabled={!!mnemonic}
@@ -28,7 +28,7 @@ export const MnemonicGenerator = ({ mnemonic, setMnemonic }: MnemonicGeneratorPr
                     {mnemonic.split(" ").map((word, i) => (
                         <div
                             key={i}
-                            className="bg-zinc-800 text-zinc-300 px-3 py-2 rounded-md text-sm border border-zinc-700"
+                            className="bg-zinc-900 text-zinc-100 px-3 py-2 rounded-md text-sm"
                         >
                             <span className="text-zinc-500 select-none mr-2">{i + 1}.</span>
                             {word}

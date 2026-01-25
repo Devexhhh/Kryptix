@@ -27,11 +27,11 @@ export default function App() {
         </div>
       </header>
 
-      <main className="max-w-4xl mx-auto flex flex-col gap-12">
+      <main className="max-w-7xl mx-auto flex flex-col gap-12">
 
         {/* SECTION 1: SEED PHRASE */}
-        <div className=" border border-zinc-800 rounded-2xl p-8 shadow-xl">
-          <h2 className="text-2xl font-bold mb-2">Your Secret Phrase</h2>
+        <div className="h-max border border-zinc-800 rounded-2xl p-8 shadow-xl">
+          <h2 className="text-4xl font-bold mb-2">Your Secret Phrase</h2>
           <p className="text-zinc-400 mb-6">Save these words in a safe place. You cannot recover your wallet without them.</p>
 
           <MnemonicGenerator mnemonic={mnemonic} setMnemonic={setMnemonic} />
