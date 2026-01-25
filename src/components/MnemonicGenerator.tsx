@@ -15,7 +15,7 @@ export const MnemonicGenerator = ({ mnemonic, setMnemonic }: MnemonicGeneratorPr
     return (
         <div className="flex flex-col gap-4 text-center">
             <Button variant="outline"
-                className={`h-15 px-4 py-2 rounded text-xl font-semibold transition-colors duration-200 ease-in-out ${mnemonic ? "bg-gray-500 cursor-not-allowed" : "bg-gray-600 hover:bg-gray-800"
+                className={`h-15 px-4 py-2 rounded text-xl font-semibold transition-colors duration-200 ease-in-out ${mnemonic ? "bg-gray-600 cursor-not-allowed" : "bg-gray-600 hover:bg-gray-800"
                     }`}
                 onClick={createMnemonic}
                 disabled={!!mnemonic}
