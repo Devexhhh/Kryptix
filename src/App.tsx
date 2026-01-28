@@ -2,6 +2,8 @@ import { useState } from "react";
 import { MnemonicGenerator } from "./components/MnemonicGenerator";
 import { SolanaWallet } from "./components/SolanaWallet";
 import { EthWallet } from "./components/EthWallet";
+import { Navbar, NavbarBrand } from "@heroui/navbar";
+import { Switch } from "./components/ui/switch";
 
 export default function App() {
   const [mnemonic, setMnemonic] = useState<string>("");
@@ -11,21 +13,30 @@ export default function App() {
     <div className="min-h-screen bg-zinc-950 text-white font-sans p-8 selection:bg-blue-500/30">
 
       {/* HEADER */}
-      <header className="flex justify-between items-center mb-12 max-w-6xl mx-auto">
-        <div className="flex items-center gap-2">
-          <div className="font-bold text-2xl tracking-tighter flex items-center gap-2">
-            <span className="text-3xl">⬡</span> Kosh
-          </div>
-          <span className="bg-zinc-800 text-zinc-400 text-xs px-2 py-0.5 rounded-full font-medium">v1.3</span>
-        </div>
+      <Navbar
+        position="sticky"
+        className="top-0 z-50 w-full bg-zinc-950/80 backdrop-blur-md"
+      >
+        <div className="w-full">
+          <div className="max-w-7xl mx-auto px-8 py-5 flex items-center justify-between">
+            {/* LEFT */}
+            <div className="flex items-center gap-3">
+              <NavbarBrand className="font-bold text-2xl tracking-tighter flex items-center gap-2">
+                <span className="text-3xl">⬡</span> Kosh
+              </NavbarBrand>
+              <span className="bg-zinc-800 text-zinc-400 text-xs px-2 py-0.5 rounded-full font-semibold">
+                v1.3
+              </span>
+            </div>
 
-        {/* Simple Light/Dark Toggle Placeholder */}
-        <div className="flex items-center gap-3">
-          <div className="w-10 h-5 bg-zinc-800 rounded-full flex items-center p-1 cursor-pointer">
-            <div className="w-3 h-3 bg-white rounded-full shadow-md translate-x-5 transition-transform"></div>
+            {/* RIGHT */}
+            <Switch />
           </div>
         </div>
-      </header>
+      </Navbar>
+
+
+
 
       <main className="max-w-7xl mx-auto flex flex-col gap-12">
 
@@ -56,10 +67,10 @@ export default function App() {
             </div>
 
             {/* TABS FOR BLOCKCHAINS */}
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            <div className="grid grid-row lg:grid-row-2 gap-20">
 
               {/* SOLANA COLUMN */}
-              <div className="flex flex-col gap-6">
+              <div className="flex flex-row gap-6">
                 <div className="flex items-center gap-3 mb-2">
                   <div className="w-8 h-8 bg-zinc-800 rounded-full flex items-center justify-center text-lg">S</div>
                   <h3 className="text-xl font-bold">Solana</h3>
@@ -68,7 +79,7 @@ export default function App() {
               </div>
 
               {/* ETHEREUM COLUMN */}
-              <div className="flex flex-col gap-6">
+              <div className="flex flex-row gap-6">
                 <div className="flex items-center gap-3 mb-2">
                   <div className="w-8 h-8 bg-zinc-800 rounded-full flex items-center justify-center text-lg">E</div>
                   <h3 className="text-xl font-bold">Ethereum</h3>

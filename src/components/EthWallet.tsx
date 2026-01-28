@@ -45,12 +45,11 @@ export const EthWallet = ({ mnemonic }: EthWalletProps) => {
     return (
         <div className="flex flex-col gap-4 mt-6">
             <div className="flex items-center justify-between">
-                <h2 className="text-xl font-bold text-white">Ethereum Wallet</h2>
                 <button
-                    className="bg-blue-600 hover:bg-blue-500 text-white font-bold py-2 px-4 rounded transition-all"
+                    className="bg-white hover:bg-red-800 hover:text-gray-100 text-zinc-900 font-semibold py-2 px-6 rounded transition-all"
                     onClick={createWallet}
                 >
-                    Add ETH Wallet
+                    Add Wallet
                 </button>
             </div>
 
