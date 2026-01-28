@@ -49,7 +49,7 @@ export default function App() {
                     window.location.reload();
                   }
                 }}
-                className="text-red-500 hover:text-red-400 text-sm font-semibold transition-colors"
+                className="text-red-500 border px-4 py-3 rounded-xl hover:text-red-400 text-sm font-semibold transition-colors"
               >
                 Clear Wallets
               </button>
