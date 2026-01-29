@@ -46,7 +46,7 @@ export const EthWallet = ({ mnemonic }: EthWalletProps) => {
         <div className="flex flex-col gap-4 mt-6">
             <div className="flex items-center justify-between">
                 <button
-                    className="bg-white hover:bg-red-800 hover:text-gray-100 text-zinc-900 font-semibold py-2 px-6 rounded transition-all"
+                    className="bg-white hover:bg-red-800 hover:text-gray-100 text-zinc-900 font-semibold py-2 px-6 rounded transition-all cursor-pointer"
                     onClick={createWallet}
                 >
                     Add Wallet

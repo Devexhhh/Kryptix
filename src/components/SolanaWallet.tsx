@@ -40,7 +40,7 @@ export function SolanaWallet({ mnemonic }: SolanaWalletProps) {
     return (
         <div className="flex flex-col gap-4">
             <button
-                className="bg-white hover:bg-red-800 hover:text-gray-100 text-zinc-900 font-semibold py-2 px-6 rounded transition-all"
+                className="bg-white hover:bg-red-800 hover:text-gray-100 text-zinc-900 font-semibold py-2 px-6 rounded transition-all cursor-pointer"
                 onClick={createWallet}
             >
                 Add Wallet
