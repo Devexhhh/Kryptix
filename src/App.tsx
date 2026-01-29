@@ -30,7 +30,7 @@ export default function App() {
             </div>
 
             {/* RIGHT */}
-            <Switch />
+            <Switch className="cursor-pointer" />
           </div>
         </div>
       </Navbar>
