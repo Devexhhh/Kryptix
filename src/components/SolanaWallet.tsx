@@ -47,7 +47,7 @@ export function SolanaWallet({ mnemonic }: SolanaWalletProps) {
             </button>
 
             {wallets.map((wallet, idx) => (
-                <div key={idx} className="border p-4 rounded bg-gray-100 dark:bg-zinc-800">
+                <div key={idx} className="bg-zinc-900 border border-zinc-800 p-4 rounded-xl shadow-sm hover:border-zinc-700 transition-colors">
                     <div className="font-bold">Wallet {idx + 1}</div>
                     <div>Public: {wallet.publicKey}</div>
                     {/* In the real UI, you would mask this */}
