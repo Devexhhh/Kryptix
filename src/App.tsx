@@ -24,7 +24,7 @@ export default function App() {
               <NavbarBrand className="font-bold text-2xl tracking-tighter flex items-center gap-2">
                 <span className="text-3xl">⬡</span> Kosh
               </NavbarBrand>
-              <span className="bg-zinc-800 text-zinc-400 text-xs px-2 py-0.5 rounded-full font-semibold">
+              <span className="bg-zinc-800 text-zinc-400 border border-zinc-700 text-xs px-2 py-0.5 rounded-full font-semibold">
                 v1.3
               </span>
             </div>
