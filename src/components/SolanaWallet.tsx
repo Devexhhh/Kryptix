@@ -48,10 +48,22 @@ export function SolanaWallet({ mnemonic }: SolanaWalletProps) {
 
             {wallets.map((wallet, idx) => (
                 <div key={idx} className="bg-zinc-900 border border-zinc-800 p-4 rounded-xl shadow-sm hover:border-zinc-700 transition-colors">
-                    <div className="font-bold">Wallet {idx + 1}</div>
-                    <div>Public: {wallet.publicKey}</div>
-                    {/* In the real UI, you would mask this */}
-                    <div className="text-xs text-gray-500 break-all">Private: {wallet.privateKey}</div>
+                    <div className="flex justify-between items-center mb-2">
+                        <span className="text-lg font-bold text-white">Wallet {idx + 1}</span>
+                    </div>
+
+                    <div className="space-y-2">
+                        <div className="bg-zinc-950 p-3 rounded-lg flex flex-col gap-1">
+                            <span className="text-xs text-zinc-500 font-semibold uppercase">Public Key</span>
+                            <span className="text-zinc-300 font-mono text-sm break-all">{wallet.publicKey}</span>
+                        </div>
+
+                        <div className="bg-zinc-950 p-3 rounded-lg flex flex-col gap-1">
+                            <span className="text-xs text-zinc-500 font-semibold uppercase">Private Key</span>
+                            {/* In a real app, use a type="password" input or a toggle state to hide this */}
+                            <span className="text-zinc-300 font-mono text-sm break-all">{wallet.privateKey}</span>
+                        </div>
+                    </div>
                 </div>
             ))}
         </div>
