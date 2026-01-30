@@ -55,7 +55,7 @@ export default function App() {
               <h2 className="text-3xl font-bold tracking-tight">Your Wallets</h2>
               <button
                 onClick={() => {
-                  if (confirm("Are you sure? This will clear your current wallet.")) {
+                  if (confirm("Are you sure? This will clear all of your current wallet.")) {
                     setMnemonic("");
                     window.location.reload();
                   }
