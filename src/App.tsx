@@ -2,42 +2,14 @@ import { useState } from "react";
 import { MnemonicGenerator } from "./components/MnemonicGenerator";
 import { SolanaWallet } from "./components/SolanaWallet";
 import { EthWallet } from "./components/EthWallet";
-import { Navbar, NavbarBrand } from "@heroui/navbar";
-import { Switch } from "./components/ui/switch";
+import { NavbarComponent } from "./components/Navbar";
 
 export default function App() {
   const [mnemonic, setMnemonic] = useState<string>("");
 
   return (
-    // MAIN CONTAINER: Dark Theme Background
     <div className="min-h-screen bg-zinc-950 text-white font-sans p-8 selection:bg-blue-500/30">
-
-      {/* HEADER */}
-      <Navbar
-        position="sticky"
-        className="top-0 z-50 w-full bg-zinc-950/80 backdrop-blur-md"
-      >
-        <div className="w-full">
-          <div className="max-w-7xl mx-auto px-8 py-5 flex items-center justify-between">
-            {/* LEFT */}
-            <div className="flex items-center gap-3">
-              <NavbarBrand className="font-bold text-2xl tracking-tighter flex items-center gap-2">
-                <span className="text-3xl">⬡</span> Kosh
-              </NavbarBrand>
-              <span className="bg-zinc-800 text-zinc-400 border border-zinc-700 text-xs px-2 py-0.5 rounded-full font-semibold">
-                v1.3
-              </span>
-            </div>
-
-            {/* RIGHT */}
-            <Switch className="cursor-pointer" />
-          </div>
-        </div>
-      </Navbar>
-
-
-
-
+      <NavbarComponent />
       <main className="max-w-7xl mx-auto flex flex-col gap-12">
 
         {/* SECTION 1: SEED PHRASE */}
