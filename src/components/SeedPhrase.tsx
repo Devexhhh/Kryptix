@@ -1,6 +1,7 @@
 import { MnemonicGenerator } from "./MnemonicGenerator";
 
 type Props = {
+    chain: string;
     mnemonic: string;
     setMnemonic: React.Dispatch<React.SetStateAction<string>>;
 };
