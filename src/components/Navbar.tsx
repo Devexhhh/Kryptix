@@ -11,7 +11,7 @@ export const NavbarComponent = () => {
             <div className="w-full">
                 <div className="max-w-7xl mx-auto px-8 py-5 flex items-center justify-between">
                     {/* LEFT */}
-                    <div className="flex items-center gap-3">
+                    <div style={{ fontFamily: "Funnel Sans" }} className="flex items-center gap-3">
                         <NavbarBrand className="font-bold text-2xl tracking-tighter flex items-center gap-2">
                             <span className="text-3xl">⬡</span> Kryptix
                         </NavbarBrand>

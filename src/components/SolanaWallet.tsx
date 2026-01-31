@@ -40,6 +40,7 @@ export function SolanaWallet({ mnemonic }: SolanaWalletProps) {
     return (
         <div className="flex flex-col gap-4">
             <button
+                style={{ fontFamily: "Funnel Sans" }}
                 className="bg-white hover:bg-red-800 hover:text-gray-100 text-zinc-900 font-semibold py-2 px-6 rounded transition-all cursor-pointer"
                 onClick={createWallet}
             >
@@ -48,11 +49,11 @@ export function SolanaWallet({ mnemonic }: SolanaWalletProps) {
 
             {wallets.map((wallet, idx) => (
                 <div key={idx} className="bg-zinc-900 border border-zinc-800 p-4 rounded-xl shadow-sm hover:border-zinc-700 transition-colors">
-                    <div className="flex justify-between items-center mb-2">
+                    <div style={{ fontFamily: "Funnel Sans" }} className="flex justify-between items-center mb-2">
                         <span className="text-lg font-bold text-white">Wallet {idx + 1}</span>
                     </div>
 
-                    <div className="space-y-2">
+                    <div style={{ fontFamily: "Funnel Sans" }} className="space-y-2">
                         <div className="bg-zinc-950 p-3 rounded-lg flex flex-col gap-1">
                             <span className="text-xs text-zinc-500 font-semibold uppercase">Public Key</span>
                             <span className="text-zinc-300 font-mono text-sm break-all">{wallet.publicKey}</span>

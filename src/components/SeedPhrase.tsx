@@ -9,9 +9,9 @@ type Props = {
 export const SeedPhraseGenerator = ({ mnemonic, setMnemonic }: Props) => {
     return (
         <>
-            <div className="h-max border border-zinc-800 rounded-2xl p-8 shadow-xl">
-                <h2 className="text-4xl font-bold mb-2">Your Secret Phrase</h2>
-                <p className="text-zinc-400 mb-6">
+            <div className="h-max border border-zinc-800 rounded-2xl p-8 shadow-xl tracking-tight">
+                <h2 style={{ fontFamily: "Funnel Sans" }} className="text-5xl font-bold mb-2">Your Secret Phrase</h2>
+                <p style={{ fontFamily: "Funnel Sans" }} className="text-zinc-400 mb-6 text-xl">
                     Save these words in a safe place. You cannot recover your wallet without them.
                 </p>
 
@@ -20,9 +20,10 @@ export const SeedPhraseGenerator = ({ mnemonic, setMnemonic }: Props) => {
 
             {mnemonic && (
                 <section className="animate-fade-in-up mt-10">
-                    <div className="flex justify-between items-center mb-8 border-b border-zinc-800 pb-4">
+                    <div style={{ fontFamily: "Funnel Sans" }} className="flex justify-between items-center mb-8 border-b border-zinc-800 pb-4">
                         <h2 className="text-3xl font-bold tracking-tight">Your Wallets</h2>
                         <button
+                            style={{ fontFamily: "Funnel Sans" }}
                             onClick={() => {
                                 if (confirm("Are you sure? This will clear all of your current wallet.")) {
                                     setMnemonic("");

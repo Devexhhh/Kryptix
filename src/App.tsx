@@ -16,30 +16,40 @@ export default function App() {
 
       <main className="max-w-7xl mx-auto flex flex-col gap-12">
         {!selectedChain && (
-          <div className="flex gap-6 justify-center p-30 mt-10 border border-zinc-800 rounded-xl shadow-2xl">
+          <div className="flex-col col-span-2 gap-6 justify-center p-30 mt-10 border border-zinc-800 rounded-xl shadow-2xl tracking-tighter">
             <div>
+              <h1 style={{ fontFamily: "Funnel Sans" }} className="text-6xl">Kryptix supports multiple blockchains</h1>
+              <p style={{ fontFamily: "Funnel Sans" }} className="text-3xl">Choose a blockchain to get started.</p>
             </div>
-            <button
-              onClick={() => setSelectedChain("solana")}
-              className="px-8 py-4 rounded hover:scale-105  cursor-point text-gray-100 bg-red-800 hover:bg-white hover:text-black font-semibold transition-colors cursor-pointer"
-            >
-              Solana
-            </button>
+            <div className="flex gap-3 mt-6">
+              <button
+                style={{ fontFamily: "Funnel Sans" }}
+                onClick={() => setSelectedChain("solana")}
+                className="px-8 py-4 rounded cursor-pointer text-black bg-gray-50 hover:bg-gray-300 hover:text-black font-semibold transition-colors"
+              >
+                Solana
+              </button>
 
-            <button
-              onClick={() => setSelectedChain("ethereum")}
-              className="px-8 py-4 rounded hover:scale-105  cursor-point text-gray-100 bg-red-800 hover:bg-white hover:text-black font-semibold transition-colors cursor-pointer"
-            >
-              Ethereum
-            </button>
+              <button
+                style={{ fontFamily: "Funnel Sans" }}
+                onClick={() => setSelectedChain("ethereum")}
+                className="px-8 py-4 rounded cursor-pointer text-black bg-gray-50 hover:bg-gray-300 hover:text-black font-semibold transition-colors"
+              >
+                Ethereum
+              </button>
+            </div>
+
           </div>
-        )}
+        )
+        }
 
-        {selectedChain && (< SeedPhraseGenerator
-          chain={selectedChain}
-          mnemonic={mnemonic}
-          setMnemonic={setMnemonic}
-        />)}
+        {
+          selectedChain && (< SeedPhraseGenerator
+            chain={selectedChain}
+            mnemonic={mnemonic}
+            setMnemonic={setMnemonic}
+          />)
+        }
 
         {mnemonic && selectedChain === "solana" && (<SolanaWallet mnemonic={mnemonic} />)}
         {mnemonic && selectedChain === "ethereum" && (<EthWallet mnemonic={mnemonic} />)}

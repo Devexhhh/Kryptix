@@ -132,10 +132,36 @@
 }
 
 @layer base {
-  * {
-    @apply border-border outline-ring/50;
+    * {
+        @apply border-border outline-ring/50;
     }
-  body {
-    @apply bg-background text-foreground;
+
+    body {
+        @apply bg-background text-foreground;
     }
+}
+
+body {
+    font-family: 'Funnel Sans', sans-serif;
+    font-weight: 400;
+    /* Default weight */
+}
+
+/* Specific elements with different weights */
+h1 {
+    font-family: 'Funnel Sans', sans-serif;
+    font-weight: 700;
+    /* Bold */
+}
+
+.light-text {
+    font-family: 'Funnel Sans', sans-serif;
+    font-weight: 300;
+    /* Light */
+}
+
+.italic-text {
+    font-family: 'Funnel Sans', sans-serif;
+    font-weight: 400;
+    font-style: italic;
 }
