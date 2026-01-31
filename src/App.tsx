@@ -16,7 +16,7 @@ export default function App() {
 
       <main className="max-w-7xl mx-auto flex flex-col gap-12">
         {!selectedChain && (
-          <div className="col-span-2 mt-10 rounded-xl bg-linear-to-r from-blue-700 to-red-700 p-[1.5px] shadow-2xl">
+          <div className="col-span-2 mt-10 rounded-xl bg-linear-to-r from-blue-700 to-red-700 p-[0.9px] shadow-2xl">
             <div className="flex-col gap-6 justify-center p-30 rounded-xl bg-black tracking-tighter">
               <div>
                 <h1 style={{ fontFamily: "Funnel Sans" }} className="text-6xl">Kryptix supports multiple blockchains</h1>
