@@ -17,6 +17,8 @@ export default function App() {
       <main className="max-w-7xl mx-auto flex flex-col gap-12">
         {!selectedChain && (
           <div className="flex gap-6 justify-center p-30 mt-10 border border-zinc-800 rounded-xl shadow-2xl">
+            <div>
+            </div>
             <button
               onClick={() => setSelectedChain("solana")}
               className="px-8 py-4 rounded hover:scale-105  cursor-point text-gray-100 bg-red-800 hover:bg-white hover:text-black font-semibold transition-colors cursor-pointer"
