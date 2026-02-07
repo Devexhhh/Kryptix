@@ -19,17 +19,10 @@ export const EthWallet = ({ mnemonic }: EthWalletProps) => {
         if (!mnemonic) return;
 
         const seed = await mnemonicToSeed(mnemonic);
-
-        // 1. Create the Master HD Node from the seed
         const hdNode = HDNodeWallet.fromSeed(seed);
-
-        // 2. Derive the specific path for the wallet
-        // Standard Ethereum path: m / 44' / 60' / 0' / 0 / index
         const derivationPath = `m/44'/60'/0'/0/${currentIndex}`;
 
         const child = hdNode.derivePath(derivationPath);
-
-        // 3. Create a Wallet instance (optional, but good if you want to sign txs later)
         const wallet = new Wallet(child.privateKey);
 
         setCurrentIndex((prev) => prev + 1);
@@ -68,7 +61,6 @@ export const EthWallet = ({ mnemonic }: EthWalletProps) => {
 
                             <div className="bg-zinc-950 p-3 rounded-lg flex flex-col gap-1">
                                 <span className="text-xs text-zinc-500 font-semibold uppercase">Private Key</span>
-                                {/* In a real app, use a type="password" input or a toggle state to hide this */}
                                 <span className="text-zinc-300 font-mono text-sm break-all">{wallet.privateKey}</span>
                             </div>
                         </div>
