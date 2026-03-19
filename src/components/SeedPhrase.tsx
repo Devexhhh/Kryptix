@@ -25,20 +25,22 @@ export const SeedPhraseGenerator = ({ mnemonic, setMnemonic }: SeedPhraseGenerat
     const words = mnemonic ? mnemonic.split(" ") : [];
 
     return (
-        <div className="space-y-5">
-            {/* Action row */}
-            <div className="flex items-center justify-between">
+        <div className="space-y-4 sm:space-y-5">
+            {/* Action row — wrap on very small screens */}
+            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 sm:gap-4">
                 <div>
-                    <h2 className="text-xl font-semibold text-white">
+                    <h2 className="text-lg sm:text-xl font-semibold text-white">
                         {mnemonic ? "Your Recovery Phrase" : "Generate a Seed Phrase"}
                     </h2>
-                    <p className="text-sm text-zinc-500 mt-1">
-                        {mnemonic ? "Store this offline. Never share it with anyone." : "Creates a new BIP-39 mnemonic locally in your browser."}
+                    <p className="text-xs sm:text-sm text-zinc-500 mt-1">
+                        {mnemonic
+                            ? "Store this offline. Never share it with anyone."
+                            : "Creates a new BIP-39 mnemonic locally in your browser."}
                     </p>
                 </div>
                 <button
                     onClick={generate}
-                    className="flex cursor-pointer items-center gap-2 px-5 py-2.5 bg-white text-black text-sm font-semibold hover:bg-zinc-100 transition-colors"
+                    className="flex items-center justify-center gap-2 px-5 py-2.5 bg-white text-black text-sm font-semibold hover:bg-zinc-100 transition-colors shrink-0 w-full sm:w-auto cursor-pointer"
                 >
                     {mnemonic ? (
                         <>
@@ -61,22 +63,22 @@ export const SeedPhraseGenerator = ({ mnemonic, setMnemonic }: SeedPhraseGenerat
             {mnemonic && (
                 <div className="border border-white/10">
                     {/* Warning */}
-                    <div className="flex items-center gap-3 px-5 py-3 border-b border-white/10 bg-amber-500/5">
-                        <svg className="w-4 h-4 text-amber-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                    <div className="flex items-start sm:items-center gap-2.5 sm:gap-3 px-4 sm:px-5 py-3 border-b border-white/10 bg-amber-500/5">
+                        <svg className="w-4 h-4 text-amber-400 shrink-0 mt-0.5 sm:mt-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                             <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
                         </svg>
-                        <span className="text-sm text-amber-400/90">
+                        <span className="text-xs sm:text-sm text-amber-400/90">
                             Never share your seed phrase. Anyone with access controls all your wallets.
                         </span>
                     </div>
 
-                    {/* Word grid */}
-                    <div className="relative p-5">
-                        <div className={`grid grid-cols-4 gap-2 transition-all duration-300 ${!revealed ? "blur-md select-none pointer-events-none" : ""}`}>
+                    {/* Word grid — 2 cols on mobile, 3 on sm, 4 on md+ */}
+                    <div className="relative p-3 sm:p-5">
+                        <div className={`grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-1.5 sm:gap-2 transition-all duration-300 ${!revealed ? "blur-md select-none pointer-events-none" : ""}`}>
                             {words.map((word, i) => (
-                                <div key={i} className="flex items-center gap-3 border border-white/[0.07] bg-white/[0.02] px-4 py-3">
-                                    <span className="text-xs text-zinc-700 font-mono w-5 shrink-0 tabular-nums">{i + 1}</span>
-                                    <span className="text-base font-medium text-zinc-200">{word}</span>
+                                <div key={i} className="flex items-center gap-2 sm:gap-3 border border-white/[0.07] bg-white/[0.02] px-3 sm:px-4 py-2.5 sm:py-3">
+                                    <span className="text-[10px] sm:text-xs text-zinc-700 font-mono w-4 sm:w-5 shrink-0 tabular-nums">{i + 1}</span>
+                                    <span className="text-sm sm:text-base font-medium text-zinc-200">{word}</span>
                                 </div>
                             ))}
                         </div>
@@ -86,12 +88,12 @@ export const SeedPhraseGenerator = ({ mnemonic, setMnemonic }: SeedPhraseGenerat
                                 className="absolute inset-0 flex items-center justify-center cursor-pointer"
                                 onClick={() => setRevealed(true)}
                             >
-                                <div className="flex items-center gap-2.5 px-5 py-3 border border-white/20 bg-black/60 backdrop-blur-sm text-base text-white hover:bg-white/10 transition-colors">
-                                    <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                                <div className="flex items-center gap-2 sm:gap-2.5 px-4 sm:px-5 py-2.5 sm:py-3 border border-white/20 bg-black/60 backdrop-blur-sm text-sm sm:text-base text-white hover:bg-white/10 transition-colors">
+                                    <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                                         <path strokeLinecap="round" strokeLinejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
                                         <path strokeLinecap="round" strokeLinejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
                                     </svg>
-                                    Click to reveal phrase
+                                    Tap to reveal phrase
                                 </div>
                             </div>
                         )}
@@ -99,27 +101,27 @@ export const SeedPhraseGenerator = ({ mnemonic, setMnemonic }: SeedPhraseGenerat
 
                     {/* Footer actions */}
                     {revealed && (
-                        <div className="flex items-center justify-end gap-2 px-5 py-3 border-t border-white/10">
+                        <div className="flex items-center justify-end gap-2 px-4 sm:px-5 py-3 border-t border-white/10">
                             <button
                                 onClick={() => setRevealed(false)}
-                                className="text-sm text-zinc-600 hover:text-zinc-300 transition-colors px-4 py-2"
+                                className="text-xs sm:text-sm text-zinc-600 hover:text-zinc-300 transition-colors px-3 sm:px-4 py-2"
                             >
                                 Hide
                             </button>
                             <button
                                 onClick={copyPhrase}
-                                className="flex items-center gap-2 text-sm border border-white/15 px-4 py-2 text-zinc-300 hover:text-white hover:border-white/30 transition-colors"
+                                className="flex items-center gap-2 text-xs sm:text-sm border border-white/15 px-3 sm:px-4 py-2 text-zinc-300 hover:text-white hover:border-white/30 transition-colors"
                             >
                                 {copied ? (
                                     <>
-                                        <svg className="w-4 h-4 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                                        <svg className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                                             <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                                         </svg>
                                         <span className="text-emerald-400">Copied!</span>
                                     </>
                                 ) : (
                                     <>
-                                        <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                                        <svg className="w-3.5 h-3.5 sm:w-4 sm:h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                                             <path strokeLinecap="round" strokeLinejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
                                         </svg>
                                         Copy phrase
