@@ -37,7 +37,7 @@ export const NavbarComponent = ({ onClearAll, hasSavedData }: NavbarProps) => {
                     {/* Desktop nav */}
                     <nav className="hidden md:flex items-center gap-8">
                         {["Docs", "GitHub", "Security"].map((item) => (
-                            <a key={item} href="#" className="text-sm text-zinc-500 hover:text-white transition-colors">
+                            <a key={item} href="https://github.com/Devexhhh" className="text-sm text-zinc-500 hover:text-white transition-colors">
                                 {item}
                             </a>
                         ))}
@@ -55,8 +55,8 @@ export const NavbarComponent = ({ onClearAll, hasSavedData }: NavbarProps) => {
                                 <button
                                     onClick={handleClear}
                                     className={`flex items-center gap-2 text-xs px-3 py-1.5 border transition-colors ${showConfirm
-                                            ? "border-red-500/50 text-red-400 bg-red-500/10"
-                                            : "border-white/10 text-zinc-500 hover:border-red-500/30 hover:text-red-400"
+                                        ? "border-red-500/50 text-red-400 bg-red-500/10"
+                                        : "border-white/10 text-zinc-500 hover:border-red-500/30 hover:text-red-400"
                                         }`}
                                 >
                                     <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -96,7 +96,7 @@ export const NavbarComponent = ({ onClearAll, hasSavedData }: NavbarProps) => {
                         {["Docs", "GitHub", "Security"].map((item) => (
                             <a
                                 key={item}
-                                href="#"
+                                href="https://github.com/Devexhhh"
                                 className="block py-2.5 text-sm text-zinc-400 hover:text-white transition-colors border-b border-white/[0.05] last:border-0"
                             >
                                 {item}
