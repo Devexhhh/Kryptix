@@ -43,7 +43,7 @@ export default function App() {
               <div className="flex items-center gap-3 sm:gap-4">
                 <button
                   onClick={handleBack}
-                  className="flex items-center gap-1.5 sm:gap-2 text-sm text-zinc-500 hover:text-white transition-colors group cursor-pointer"
+                  className="flex items-center gap-1.5 sm:gap-2 text-sm text-zinc-500 hover:text-white transition-colors group"
                 >
                   <svg className="w-4 h-4 group-hover:-translate-x-0.5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
@@ -117,6 +117,34 @@ export default function App() {
           </div>
         </div>
       )}
+
+      {/* Footer */}
+      <footer className="border-t border-white/10 mt-auto">
+        <div className="max-w-6xl mx-auto px-4 sm:px-8">
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-3 py-5">
+            <div className="flex items-center gap-2.5">
+              <div className="w-5 h-5 bg-white flex items-center justify-center shrink-0">
+                <svg viewBox="0 0 24 24" className="w-3 h-3 text-black" fill="none" stroke="currentColor" strokeWidth={2.5}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
+                </svg>
+              </div>
+              <span className="text-xs text-zinc-600">Kryptix · Open source HD wallet generator</span>
+            </div>
+
+            <div className="flex items-center gap-1.5 text-xs text-zinc-700">
+              <span>Designed &amp; built by</span>
+              <a
+                href="https://github.com/Devexhhh"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-1.5 text-zinc-400 hover:text-white transition-colors font-bold group"
+              >
+                Devex
+              </a>
+            </div>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 }
@@ -247,7 +275,7 @@ function ChainCard({ name, ticker, desc, color, onClick, logo }: {
   return (
     <button
       onClick={onClick}
-      className="group relative text-left border border-white/10 p-5 sm:p-6 hover:border-white/25 hover:bg-white/[0.02] transition-all duration-200 overflow-hidden cursor-pointer"
+      className="group relative text-left border border-white/10 p-5 sm:p-6 hover:border-white/25 hover:bg-white/[0.02] transition-all duration-200 overflow-hidden"
     >
       <div
         className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
