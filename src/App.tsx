@@ -275,7 +275,7 @@ function ChainCard({ name, ticker, desc, color, onClick, logo }: {
   return (
     <button
       onClick={onClick}
-      className="group relative text-left border border-white/10 p-5 sm:p-6 hover:border-white/25 hover:bg-white/[0.02] transition-all duration-200 overflow-hidden"
+      className="group relative text-left border border-white/10 p-5 sm:p-6 hover:border-white/25 hover:bg-white/[0.02] transition-all duration-200 overflow-hidden cursor-pointer"
     >
       <div
         className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
