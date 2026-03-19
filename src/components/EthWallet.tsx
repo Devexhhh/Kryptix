@@ -31,19 +31,12 @@ export const EthWallet = ({ mnemonic }: { mnemonic: string }) => {
         }
     };
 
-    const removeWallet = (idx: number) => {
-        const next = wallets.filter((_, i) => i !== idx);
-        setWallets(next);
-    };
+    const removeWallet = (idx: number) => setWallets(wallets.filter((_, i) => i !== idx));
 
     const toggleReveal = (idx: number) => {
         setRevealedKeys((prev) => {
             const next = new Set(prev);
-            if (next.has(idx)) {
-                next.delete(idx);
-            } else {
-                next.add(idx);
-            }
+            if (next.has(idx)) { next.delete(idx); } else { next.add(idx); }
             return next;
         });
     };
@@ -55,11 +48,11 @@ export const EthWallet = ({ mnemonic }: { mnemonic: string }) => {
     };
 
     return (
-        <div className="space-y-5">
-            <div className="flex items-center justify-between">
+        <div className="space-y-4 sm:space-y-5">
+            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
                 <div>
-                    <h2 className="text-xl font-semibold text-white">Ethereum Wallets</h2>
-                    <p className="text-sm text-zinc-500 mt-1">
+                    <h2 className="text-lg sm:text-xl font-semibold text-white">Ethereum Wallets</h2>
+                    <p className="text-xs sm:text-sm text-zinc-500 mt-1">
                         {wallets.length === 0
                             ? "No wallets generated yet"
                             : `${wallets.length} wallet${wallets.length > 1 ? "s" : ""}`}
@@ -68,7 +61,7 @@ export const EthWallet = ({ mnemonic }: { mnemonic: string }) => {
                 <button
                     onClick={createWallet}
                     disabled={loading}
-                    className="flex items-center gap-2 px-5 py-2.5 border border-white/15 text-sm font-medium text-zinc-200 hover:text-white hover:border-white/30 hover:bg-white/[0.03] transition-all disabled:opacity-40 cursor-pointer"
+                    className="flex items-center justify-center gap-2 px-5 py-2.5 border border-white/15 text-sm font-medium text-zinc-200 hover:text-white hover:border-white/30 hover:bg-white/[0.03] transition-all disabled:opacity-40 w-full sm:w-auto cursor-pointer"
                 >
                     {loading ? (
                         <svg className="w-4 h-4 animate-spin" fill="none" viewBox="0 0 24 24">
@@ -84,7 +77,7 @@ export const EthWallet = ({ mnemonic }: { mnemonic: string }) => {
                 </button>
             </div>
 
-            <div className="space-y-3">
+            <div className="space-y-2 sm:space-y-3">
                 {wallets.map((wallet, idx) => (
                     <WalletCard
                         key={idx}
